@@ -26,7 +26,7 @@ minecraft {
 }
 
 dependencies {
-    //compile project(":Skeleton")
+    compile project(":Skeleton")
 }
 
 processResources {
