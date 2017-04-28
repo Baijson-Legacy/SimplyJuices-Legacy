@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "simplyjuices:items/tools/bottle_layer2"
+  }
+}

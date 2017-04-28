@@ -1,0 +1,47 @@
+{
+	"parent": "skeleton:base/block",
+	"elements": [
+		{
+			"from": [ 0, 0, 0 ],
+			"to": [ 16, 16, 16 ],
+			"faces": {
+				"down": { "uv": [ 0, 0, 16, 16 ], "texture": "#outer" },
+				"up": { "uv": [ 0, 0, 16, 16 ], "texture": "#outer" },
+				"north": { "uv": [ 0, 0, 16, 16 ], "texture": "#outer" },
+				"south": { "uv": [ 0, 0, 16, 16 ], "texture": "#outer" },
+				"west": { "uv": [ 0, 0, 16, 16 ], "texture": "#outer" },
+				"east": { "uv": [ 0, 0, 16, 16 ], "texture": "#outer" }
+			}
+		},
+		{
+			"from": [ 2, 0, 2 ],
+			"to": [ 19, 16, 2 ],
+			"rotation": { "origin": [ 2, 0, 2 ], "axis": "y", "angle": -45 },
+			"faces": {
+				"north": { "uv": [ 0, 0, 16, 16 ], "texture": "#inner" },
+				"south": { "uv": [ 0, 0, 16, 16 ], "texture": "#inner" }
+			}
+		},
+		{
+			"from": [ 2, 0, 14 ],
+			"to": [ 19, 16, 14 ],
+			"rotation": { "origin": [ 2, 0, 14 ], "axis": "y", "angle": 45 },
+			"faces": {
+				"north": { "uv": [ 0, 0, 16, 16 ], "texture": "#inner" },
+				"south": { "uv": [ 0, 0, 16, 16 ], "texture": "#inner" }
+			}
+		},
+		{
+			"from": [ 0, 0, 0 ],
+			"to": [ 16, 16, 16 ],
+			"faces": {
+				"down": { "uv": [ 0, 0, 16, 16 ], "tintindex": 1, "texture": "#berry" },
+				"up": { "uv": [ 0, 0, 16, 16 ], "tintindex": 1, "texture": "#berry" },
+				"north": { "uv": [ 0, 0, 16, 16 ], "tintindex": 1, "texture": "#berry" },
+				"south": { "uv": [ 0, 0, 16, 16 ], "tintindex": 1, "texture": "#berry" },
+				"west": { "uv": [ 0, 0, 16, 16 ], "tintindex": 1, "texture": "#berry" },
+				"east": { "uv": [ 0, 0, 16, 16 ], "tintindex": 1, "texture": "#berry" }
+			}
+		}
+	]
+}

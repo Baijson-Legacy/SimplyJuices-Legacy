@@ -1,0 +1,50 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "particle": "simplyjuices:block/bushes/berrybush_outer"
+    }
+  },
+  "variants": {
+    "inventory": [
+      {
+        "model": "simplyjuices:bushes/blockberrybush_stage0",
+        "textures": {
+          "inner": "simplyjuices:block/bushes/berrybush_inner",
+          "outer": "simplyjuices:block/bushes/berrybush_outer"
+        }
+      }
+    ],
+    "stages": {
+      "0": {
+        "model": "simplyjuices:bushes/blockberrybush_stage0",
+        "textures": {
+          "inner": "simplyjuices:block/bushes/berrybush_inner",
+          "outer": "simplyjuices:block/bushes/berrybush_outer"
+        }
+      },
+      "1": {
+        "model": "simplyjuices:bushes/blockberrybush_stage1",
+        "textures": {
+          "inner": "simplyjuices:block/bushes/berrybush_inner",
+          "outer": "simplyjuices:block/bushes/berrybush_outer"
+        }
+      },
+      "2": {
+        "model": "simplyjuices:bushes/blockberrybush_stage2",
+        "textures": {
+          "inner": "simplyjuices:block/bushes/berrybush_inner",
+          "outer": "simplyjuices:block/bushes/berrybush_outer"
+        }
+      },
+      "3": {
+        "model": "simplyjuices:bushes/blockberrybush_stage3",
+        "textures": {
+          "inner": "simplyjuices:block/bushes/berrybush_inner",
+          "outer": "simplyjuices:block/bushes/berrybush_outer",
+          "berry": "simplyjuices:block/bushes/berrybush_berry"
+        }
+      }
+    }
+  }
+}

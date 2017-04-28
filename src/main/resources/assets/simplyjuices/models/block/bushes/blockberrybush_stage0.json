@@ -1,0 +1,17 @@
+{
+	"parent": "skeleton:base/block",
+	"elements": [
+		{
+			"from": [ 3, 0, 3 ],
+			"to": [ 13, 10, 13 ],
+			"faces": {
+				"down": { "uv": [ 3, 3, 13, 13 ], "texture": "#outer" },
+				"up": { "uv": [ 3, 3, 13, 13 ], "texture": "#outer" },
+				"north": { "uv": [ 3, 6, 13, 16 ], "texture": "#outer" },
+				"south": { "uv": [ 3, 6, 13, 16 ], "texture": "#outer" },
+				"west": { "uv": [ 3, 6, 13, 16 ], "texture": "#outer" },
+				"east": { "uv": [ 3, 6, 13, 16 ], "texture": "#outer" }
+			}
+		}
+	]
+}

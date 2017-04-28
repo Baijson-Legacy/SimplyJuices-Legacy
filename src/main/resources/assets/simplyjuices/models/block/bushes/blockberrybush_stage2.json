@@ -1,0 +1,35 @@
+{
+	"parent": "skeleton:base/block",
+	"elements": [
+		{
+			"from": [ 1, 0, 1 ],
+			"to": [ 15, 14, 15 ],
+			"faces": {
+				"down": { "uv": [ 1, 1, 15, 15 ], "texture": "#outer" },
+				"up": { "uv": [ 1, 1, 15, 15 ], "texture": "#outer" },
+				"north": { "uv": [ 1, 1, 15, 15 ], "texture": "#outer" },
+				"south": { "uv": [ 1, 1, 15, 15 ], "texture": "#outer" },
+				"west": { "uv": [ 1, 1, 15, 15 ], "texture": "#outer" },
+				"east": { "uv": [ 1, 1, 15, 15 ], "texture": "#outer" }
+			}
+		},
+		{
+			"from": [ 2, 0, 2 ],
+			"to": [ 19, 13, 2 ],
+			"rotation": { "origin": [ 2, 0, 2 ], "axis": "y", "angle": -45 },
+			"faces": {
+				"north": { "uv": [ 1, 0, 15, 14 ], "texture": "#inner" },
+				"south": { "uv": [ 1, 0, 15, 14 ], "texture": "#inner" }
+			}
+		},
+		{
+			"from": [ 2, 0, 14 ],
+			"to": [ 19, 13, 14 ],
+			"rotation": { "origin": [ 2, 0, 14 ], "axis": "y", "angle": 45 },
+			"faces": {
+				"north": { "uv": [ 1, 0, 15, 14 ], "texture": "#inner" },
+				"south": { "uv": [ 1, 0, 15, 14 ], "texture": "#inner" }
+			}
+		}
+	]
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "simplyjuices:items/foods/berry_layer0",
+    "layer1": "simplyjuices:items/foods/berry_layer1",
+    "layer2": "simplyjuices:items/foods/berry_layer2"
+  }
+}

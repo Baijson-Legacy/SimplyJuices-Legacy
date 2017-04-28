@@ -1,0 +1,16 @@
+[
+    {
+      "modid": "simplyjuices",
+      "name": "Simply Juices",
+      "description": "Bushes, Berries, Juices!",
+      "version": "${version}",
+      "mcversion": "${mcversion}",
+      "url": "",
+      "updateUrl": "",
+      "authorList": ["Baijson"],
+      "credits": "JarnoVH, DJPorter, Vash505, M1JordanAllen, and probably a whole lot more!",
+      "logoFile": "",
+      "screenshots": [],
+      "dependencies": ["Skeleton"]
+    }
+]
