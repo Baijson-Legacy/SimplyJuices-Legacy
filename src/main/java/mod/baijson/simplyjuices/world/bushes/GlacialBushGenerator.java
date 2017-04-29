@@ -14,19 +14,21 @@ import java.util.Random;
 /**
  * Created by Baijson.
  */
-public class GenericBushGenerator extends AbstractGenerator {
+public class GlacialBushGenerator extends AbstractGenerator {
 
     /**
+     *
      * @param material
      * @param biomes
      */
-    public GenericBushGenerator(BlockBerryBush material, BiomeDictionary.Type[] biomes) {
+    public GlacialBushGenerator(BlockBerryBush material, BiomeDictionary.Type[] biomes) {
         super(material, biomes);
     }
 
     /**
      * @param world
      * @param position
+     * @param random
      */
     @Override
     public void generate(World world, BlockPos position, Random random) {
@@ -35,7 +37,7 @@ public class GenericBushGenerator extends AbstractGenerator {
                 for (int y = position.getY() - 1; y <= position.getY() + 1; y++) {
                     BlockPos next = new BlockPos(x, y, z);
                     if (WorldgenBlockValidation.validate(world, next, new ArrayList<>(Arrays.asList(Blocks.GRASS, Blocks.DIRT)))) {
-                        if (world.getBlockState(next).getBlock() == Blocks.AIR && random.nextBoolean()) {
+                        if (world.getBlockState(next).getBlock() == Blocks.AIR || world.getBlockState(next).getBlock() == Blocks.SNOW_LAYER && random.nextBoolean()) {
                             world.setBlockState(next, this.material.getRandomState(this.material.getDefaultState(), random), 2);
                         }
                     }

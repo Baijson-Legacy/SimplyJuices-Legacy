@@ -3,9 +3,9 @@ package mod.baijson.simplyjuices.world;
 import mod.baijson.simplyjuices.SimplyJuices;
 import mod.baijson.simplyjuices.blocks.BlockRegistry;
 import mod.baijson.simplyjuices.world.bushes.GenericBushGenerator;
+import mod.baijson.simplyjuices.world.bushes.GlacialBushGenerator;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.common.BiomeDictionary;
@@ -20,7 +20,7 @@ public class WorldBushGenerator implements IWorldGenerator {
 
     private GenericBushGenerator bushBlackberryGenerator;
     private GenericBushGenerator bushCloudberryGenerator;
-    private GenericBushGenerator bushGooseberryGenerator;
+    private GlacialBushGenerator bushGooseberryGenerator;
     private GenericBushGenerator bushSnozzberryGenerator;
     private GenericBushGenerator bushStrawberryGenerator;
 
@@ -28,12 +28,11 @@ public class WorldBushGenerator implements IWorldGenerator {
      *
      */
     public WorldBushGenerator() {
-
-        this.bushBlackberryGenerator = new GenericBushGenerator(BlockRegistry.blockBushBlackberry);
-        this.bushCloudberryGenerator = new GenericBushGenerator(BlockRegistry.blockBushCloudberry);
-        this.bushGooseberryGenerator = new GenericBushGenerator(BlockRegistry.blockBushGooseberry);
-        this.bushSnozzberryGenerator = new GenericBushGenerator(BlockRegistry.blockBushSnozzberry);
-        this.bushStrawberryGenerator = new GenericBushGenerator(BlockRegistry.blockBushStrawberry);
+        this.bushBlackberryGenerator = new GenericBushGenerator(BlockRegistry.blockBushBlackberry, new BiomeDictionary.Type[]{BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.FOREST});
+        this.bushCloudberryGenerator = new GenericBushGenerator(BlockRegistry.blockBushCloudberry, new BiomeDictionary.Type[]{BiomeDictionary.Type.MOUNTAIN});
+        this.bushGooseberryGenerator = new GlacialBushGenerator(BlockRegistry.blockBushGooseberry, new BiomeDictionary.Type[]{BiomeDictionary.Type.COLD, BiomeDictionary.Type.SNOWY});
+        this.bushSnozzberryGenerator = new GenericBushGenerator(BlockRegistry.blockBushSnozzberry, new BiomeDictionary.Type[]{BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.MAGICAL});
+        this.bushStrawberryGenerator = new GenericBushGenerator(BlockRegistry.blockBushStrawberry, new BiomeDictionary.Type[]{BiomeDictionary.Type.PLAINS});
     }
 
     /**
@@ -49,40 +48,27 @@ public class WorldBushGenerator implements IWorldGenerator {
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator generator, IChunkProvider provider) {
 
-        final int x = chunkX * 16 + 8;
-        final int z = chunkZ * 16 + 8;
-
-        final Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
-
+        int x = chunkX * 16 + 8;
+        int z = chunkZ * 16 + 8;
 
         if (SimplyJuices.config.generationBlackberryBushEnable && random.nextInt(SimplyJuices.config.generationBlackberryBushRarity) == 0) {
-            if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.PLAINS) || BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.FOREST)) {
-                this.bushBlackberryGenerator.generate(random, world, new BlockPos(x, 0, z));
-            }
+            this.bushBlackberryGenerator.generate(random, world, new BlockPos(x, 0, z));
         }
 
         if (SimplyJuices.config.generationCloudberryBushEnable && random.nextInt(SimplyJuices.config.generationCloudberryBushRarity) == 0) {
-            if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.MOUNTAIN)) {
-                this.bushCloudberryGenerator.generate(random, world, new BlockPos(x, 0, z));
-            }
+            this.bushCloudberryGenerator.generate(random, world, new BlockPos(x, 0, z));
         }
 
         if (SimplyJuices.config.generationGooseberryBushEnable && random.nextInt(SimplyJuices.config.generationGooseberryBushRarity) == 0) {
-            if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.COLD)) {
-                this.bushGooseberryGenerator.generate(random, world, new BlockPos(x, 0, z));
-            }
+            this.bushGooseberryGenerator.generate(random, world, new BlockPos(x, 0, z));
         }
 
         if (SimplyJuices.config.generationSnozzberryBushEnable && random.nextInt(SimplyJuices.config.generationSnozzberryBushRarity) == 0) {
-            if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.SWAMP)) {
-                this.bushSnozzberryGenerator.generate(random, world, new BlockPos(x, 0, z));
-            }
+            this.bushSnozzberryGenerator.generate(random, world, new BlockPos(x, 0, z));
         }
 
         if (SimplyJuices.config.generationStrawberryBushEnable && random.nextInt(SimplyJuices.config.generationStrawberryBushRarity) == 0) {
-            if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.PLAINS)) {
-                this.bushStrawberryGenerator.generate(random, world, new BlockPos(x, 0, z));
-            }
+            this.bushStrawberryGenerator.generate(random, world, new BlockPos(x, 0, z));
         }
     }
 }

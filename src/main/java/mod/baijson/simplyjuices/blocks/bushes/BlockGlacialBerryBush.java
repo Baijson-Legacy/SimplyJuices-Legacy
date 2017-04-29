@@ -6,13 +6,13 @@ import net.minecraft.util.ResourceLocation;
 /**
  * Created by Baijson.
  */
-public class BlockMagicalBerryBush extends BlockGenericBerryBush {
+public class BlockGlacialBerryBush extends BlockGenericBerryBush {
 
     /**
      * @param resource
      * @param material
      */
-    protected BlockMagicalBerryBush(ResourceLocation resource, Item material) {
+    protected BlockGlacialBerryBush(ResourceLocation resource, Item material) {
         super(resource, material);
     }
 
@@ -21,8 +21,8 @@ public class BlockMagicalBerryBush extends BlockGenericBerryBush {
      * @param material
      * @return
      */
-    public static BlockMagicalBerryBush create(ResourceLocation resource, Item material) {
-        BlockMagicalBerryBush self = new BlockMagicalBerryBush(resource, material);
+    public static BlockGlacialBerryBush create(ResourceLocation resource, Item material) {
+        BlockGlacialBerryBush self = new BlockGlacialBerryBush(resource, material);
         self.register();
 
         return self;

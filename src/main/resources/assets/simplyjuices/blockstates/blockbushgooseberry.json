@@ -15,7 +15,7 @@
         }
       }
     ],
-    "stages": {
+    "stage": {
       "0": {
         "model": "simplyjuices:bushes/blockberrybush_stage0",
         "textures": {
