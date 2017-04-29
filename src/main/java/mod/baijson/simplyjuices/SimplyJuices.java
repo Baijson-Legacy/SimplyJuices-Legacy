@@ -21,7 +21,7 @@ public class SimplyJuices {
     public static final String MODID = "simplyjuices";
     public static final String MODNM = "Simply Juices";
 
-    public static final String VERSION = "1.0.0";
+    public static final String VERSION = "1.0.1";
 
     public static final String PROXY_COMMON = "mod.baijson." + MODID + ".common.CommonProxy";
     public static final String PROXY_CLIENT = "mod.baijson." + MODID + ".client.ClientProxy";
@@ -47,7 +47,6 @@ public class SimplyJuices {
      *
      */
     public static CreativeTab SimplyJuicesTab = new CreativeTab("simplyjuices");
-
     /**
      *
      */

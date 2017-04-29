@@ -4,6 +4,7 @@ import mod.baijson.simplyjuices.SimplyJuices;
 import mod.baijson.simplyjuices.blocks.BlockRegistry;
 import mod.baijson.simplyjuices.common.CommonProxy;
 import mod.baijson.simplyjuices.items.ItemsRegistry;
+import mod.baijson.skeleton.client.CreativeTab;
 import mod.baijson.skeleton.client.render.LazyColorHandler;
 import mod.baijson.skeleton.client.render.LazyModelHandler;
 import mod.baijson.skeleton.common.ISidedProxy;

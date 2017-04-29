@@ -68,7 +68,7 @@ public class ItemsRegistry implements IMarkedLazy {
         itemToolJuicer = ItemJuicer.create(new ResourceLocation(SimplyJuices.MODID, "itemtooljuicer"));
         itemToolJuicer.setContainerItem(itemToolJuicer);
 
-        GameRegistry.addShapelessRecipe(new ItemStack(itemToolJuicer), Blocks.STONE, Blocks.STONE);
+        GameRegistry.addShapelessRecipe(new ItemStack(itemToolJuicer), Blocks.STONE, Blocks.STONE, Blocks.STONE_BUTTON);
 
         if (SimplyJuices.config.enableRequireBottle) {
             GameRegistry.addRecipe(new ItemStack(itemToolBottle, 3), " X ", "G G", " G ",
