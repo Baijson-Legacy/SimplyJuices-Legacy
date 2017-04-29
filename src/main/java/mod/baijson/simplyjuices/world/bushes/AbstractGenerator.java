@@ -46,7 +46,7 @@ abstract public class AbstractGenerator {
         if (generate != null) {
             Biome biome = world.getBiomeForCoordsBody(new BlockPos(position.getX(), 0, position.getZ()));
             for (int i = 0; i < biomes.length; i++) {
-                if (BiomeDictionary.isBiomeOfType(biome, biomes[i])) {
+                if (BiomeDictionary.hasType(biome, biomes[i])) {
                     this.generate(world, generate, random);
                 }
             }

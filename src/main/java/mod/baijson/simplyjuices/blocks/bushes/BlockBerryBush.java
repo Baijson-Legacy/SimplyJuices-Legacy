@@ -80,7 +80,7 @@ public class BlockBerryBush extends GrowingBlock implements IGrowingBlock, IPlan
 
             ItemStack drop = new ItemStack(this.material, 1);
             EntityItem item = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, drop);
-            world.spawnEntityInWorld(item);
+            world.spawnEntity(item);
 
             if (!(player instanceof FakePlayer)) {
                 item.onCollideWithPlayer(player);
@@ -94,15 +94,14 @@ public class BlockBerryBush extends GrowingBlock implements IGrowingBlock, IPlan
      * @param state
      * @param player
      * @param hand
-     * @param stack
-     * @param side
+     * @param facing
      * @param hitX
      * @param hitY
      * @param hitZ
      * @return
      */
     @Override
-    public boolean onBlockActivated(World world, BlockPos position, IBlockState state, EntityPlayer player, EnumHand hand, @Nullable ItemStack stack, EnumFacing side, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World world, BlockPos position, IBlockState state, EntityPlayer player, EnumHand hand,  EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (world.isRemote)
             return true;
 
@@ -111,7 +110,7 @@ public class BlockBerryBush extends GrowingBlock implements IGrowingBlock, IPlan
 
             ItemStack drop = new ItemStack(this.material, 1);
             EntityItem item = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, drop);
-            world.spawnEntityInWorld(item);
+            world.spawnEntity(item);
 
             if (!(player instanceof FakePlayer)) {
                 item.onCollideWithPlayer(player);
