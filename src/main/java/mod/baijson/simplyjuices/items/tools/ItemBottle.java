@@ -1,11 +1,9 @@
 package mod.baijson.simplyjuices.items.tools;
 
 import mod.baijson.simplyjuices.SimplyJuices;
-
 import mod.baijson.skeleton.client.render.IModelAware;
 import mod.baijson.skeleton.items.tools.GenericItemTool;
 import mod.baijson.skeleton.items.tools.IGenericItemTool;
-
 import net.minecraft.util.ResourceLocation;
 
 /**

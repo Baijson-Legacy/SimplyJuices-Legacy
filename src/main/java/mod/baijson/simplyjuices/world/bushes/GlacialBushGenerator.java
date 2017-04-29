@@ -17,7 +17,6 @@ import java.util.Random;
 public class GlacialBushGenerator extends AbstractGenerator {
 
     /**
-     *
      * @param material
      * @param biomes
      */

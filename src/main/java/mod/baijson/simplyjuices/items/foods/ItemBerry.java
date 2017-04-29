@@ -1,15 +1,16 @@
 package mod.baijson.simplyjuices.items.foods;
 
 import mod.baijson.simplyjuices.SimplyJuices;
-
 import mod.baijson.skeleton.client.render.IColorAware;
 import mod.baijson.skeleton.client.render.IModelAware;
 import mod.baijson.skeleton.items.foods.GenericItemFood;
 import mod.baijson.skeleton.items.foods.IGenericItemFood;
-
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.Achievement;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 
 import java.awt.*;
 
@@ -19,6 +20,8 @@ import java.awt.*;
 public class ItemBerry extends GenericItemFood implements IGenericItemFood, IModelAware, IColorAware {
 
     protected Color color;
+
+    protected Achievement achievement;
 
     /**
      * @param resource
@@ -53,6 +56,25 @@ public class ItemBerry extends GenericItemFood implements IGenericItemFood, IMod
         return EnumAction.EAT;
     }
 
+
+    /**
+     * @param stack
+     * @param world
+     * @param player
+     */
+    @Override
+    protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
+        super.onFoodEaten(stack, world, player);
+
+        /**
+         * Achievement
+         */
+
+        if (this.getAchievement() != null) {
+            player.addStat(this.getAchievement(), 1);
+        }
+    }
+
     /**
      * @return
      */
@@ -82,5 +104,19 @@ public class ItemBerry extends GenericItemFood implements IGenericItemFood, IMod
             return this.getColor();
         }
         return -1;
+    }
+
+    /**
+     * @return
+     */
+    public Achievement getAchievement() {
+        return this.achievement;
+    }
+
+    /**
+     * @param achievement
+     */
+    public void setAchievement(Achievement achievement) {
+        this.achievement = achievement;
     }
 }

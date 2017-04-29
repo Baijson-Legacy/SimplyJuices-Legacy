@@ -1,4 +1,4 @@
-itemGroup.simplyjuices=Simply Juices
+﻿itemGroup.simplyjuices=Simply Juices
 
 item.itemtooljuicer.name=Juicer
 item.itemtoolbottle.name=Juice bottle
@@ -22,10 +22,13 @@ tile.blockbushcloudberry.tooltip=These bushes are usually found in high places.
 tile.blockbushgooseberry.name=Gooseberry bush
 tile.blockbushgooseberry.tooltip=Usually found in cold area's.
 tile.blockbushsnozzberry.name=Snozzberry bush
-tile.blockbushsnozzberry.tooltip=Such an odd bush, found in swampy area's.
+tile.blockbushsnozzberry.tooltip=Such an odd bush, found in magical or swamp area's.
 tile.blockbushstrawberry.name=Strawberry bush
 tile.blockbushstrawberry.tooltip=Commonly found in grassy area's.
 
 item.itemjuicevanillaapple.name=Apple juice
 item.itemjuicevanillamelon.name=Melon juice
 item.itemjuicevanillacarrot.name=Carrot juice
+
+achievement.snozzberry=Taste like Snozzberries!
+achievement.snozzberry.desc=The Snozzberries taste like ... Snozzberries!

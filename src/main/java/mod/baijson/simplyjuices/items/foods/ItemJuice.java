@@ -1,12 +1,10 @@
 package mod.baijson.simplyjuices.items.foods;
 
 import mod.baijson.simplyjuices.SimplyJuices;
-
 import mod.baijson.skeleton.client.render.IColorAware;
 import mod.baijson.skeleton.client.render.IModelAware;
 import mod.baijson.skeleton.items.foods.GenericItemFood;
 import mod.baijson.skeleton.items.foods.IGenericItemFood;
-
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;

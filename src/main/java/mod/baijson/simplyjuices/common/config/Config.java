@@ -16,11 +16,11 @@ public class Config extends ConfigFactory {
     public boolean generationSnozzberryBushEnable = true;
     public boolean generationStrawberryBushEnable = true;
 
-    public int generationBlackberryBushRarity = 8;
-    public int generationCloudberryBushRarity = 8;
-    public int generationGooseberryBushRarity = 8;
-    public int generationSnozzberryBushRarity = 8;
-    public int generationStrawberryBushRarity = 8;
+    public int generationBlackberryBushRarity = 65;
+    public int generationCloudberryBushRarity = 85;
+    public int generationGooseberryBushRarity = 85;
+    public int generationSnozzberryBushRarity = 85;
+    public int generationStrawberryBushRarity = 65;
 
     public boolean enableRequireBottle = false;
     public boolean enableVanillaJuices = false;
@@ -41,7 +41,6 @@ public class Config extends ConfigFactory {
         super.load(configuration);
 
         final ConfigCategory catWorldgen = new ConfigCategory("World generation");
-        catWorldgen.setComment("Enable/Disable world generation per berry bush.");
 
         final ConfigCategory catBlackberry = new ConfigCategory("Blackberry", catWorldgen);
         final ConfigCategory catCloudberry = new ConfigCategory("Cloudberry", catWorldgen);
@@ -50,15 +49,25 @@ public class Config extends ConfigFactory {
         final ConfigCategory catStrawberry = new ConfigCategory("Strawberry", catWorldgen);
 
         generationBlackberryBushEnable = this.handle().get(catBlackberry.getQualifiedName(), "Enabled", generationBlackberryBushEnable).getBoolean();
-        generationBlackberryBushRarity = this.handle().get(catBlackberry.getQualifiedName(), "Rarity", generationBlackberryBushRarity, "Min: 0 ~ Max: 10", 0, 10).getInt();
+        generationBlackberryBushRarity = this.handle().get(catBlackberry.getQualifiedName(), "Rarity", generationBlackberryBushRarity, "Spawnrate value between 0 ~ 100. (0 = extremely rare)", 0, 100).getInt();
+        generationBlackberryBushRarity = (100 - generationBlackberryBushRarity);
+
         generationCloudberryBushEnable = this.handle().get(catCloudberry.getQualifiedName(), "Enabled", generationCloudberryBushEnable).getBoolean();
-        generationCloudberryBushRarity = this.handle().get(catCloudberry.getQualifiedName(), "Rarity", generationCloudberryBushRarity, "Min: 0 ~ Max: 10", 0, 10).getInt();
+        generationCloudberryBushRarity = this.handle().get(catCloudberry.getQualifiedName(), "Rarity", generationCloudberryBushRarity, "Spawnrate value between 0 ~ 100. (0 = extremely rare)", 0, 100).getInt();
+        generationCloudberryBushRarity = (100 - generationCloudberryBushRarity);
+
         generationGooseberryBushEnable = this.handle().get(catGooseberry.getQualifiedName(), "Enabled", generationGooseberryBushEnable).getBoolean();
-        generationGooseberryBushRarity = this.handle().get(catGooseberry.getQualifiedName(), "Rarity", generationGooseberryBushRarity, "Min: 0 ~ Max: 10", 0, 10).getInt();
+        generationGooseberryBushRarity = this.handle().get(catGooseberry.getQualifiedName(), "Rarity", generationGooseberryBushRarity, "Spawnrate value between 0 ~ 100. (0 = extremely rare)", 0, 100).getInt();
+        generationGooseberryBushRarity = (100 - generationGooseberryBushRarity);
+
         generationSnozzberryBushEnable = this.handle().get(catSnozzberry.getQualifiedName(), "Enabled", generationSnozzberryBushEnable).getBoolean();
-        generationSnozzberryBushRarity = this.handle().get(catSnozzberry.getQualifiedName(), "Rarity", generationSnozzberryBushRarity, "Min: 0 ~ Max: 10", 0, 10).getInt();
+        generationSnozzberryBushRarity = this.handle().get(catSnozzberry.getQualifiedName(), "Rarity", generationSnozzberryBushRarity, "Spawnrate value between 0 ~ 100. (0 = extremely rare)", 0, 100).getInt();
+        generationSnozzberryBushRarity = (100 - generationSnozzberryBushRarity);
+
         generationStrawberryBushEnable = this.handle().get(catStrawberry.getQualifiedName(), "Enabled", generationStrawberryBushEnable).getBoolean();
-        generationStrawberryBushRarity = this.handle().get(catStrawberry.getQualifiedName(), "Rarity", generationStrawberryBushRarity, "Min: 0 ~ Max: 10", 0, 10).getInt();
+        generationStrawberryBushRarity = this.handle().get(catStrawberry.getQualifiedName(), "Rarity", generationStrawberryBushRarity, "Spawnrate value between 0 ~ 100. (0 = extremely rare)", 0, 100).getInt();
+        generationStrawberryBushRarity = (100 - generationStrawberryBushRarity);
+
 
         enableRequireBottle = this.handle().get("General", "Juice recipes require empty bottles", enableRequireBottle).getBoolean();
         enableVanillaJuices = this.handle().get("General", "Enable recipes for Applejuice, Melonjuice and Carrotjuice", enableVanillaJuices).getBoolean();

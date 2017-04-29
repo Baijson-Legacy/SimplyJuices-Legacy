@@ -24,17 +24,17 @@ public class ItemsRegistry implements IMarkedLazy {
     static public Item itemToolJuicer;
     static public Item itemToolBottle;
 
-    static public ItemBerry itemBerryStrawberry; // red-ish
-    static public ItemBerry itemBerryBlackberry; // dark blue
-    static public ItemBerry itemBerryGooseberry; // green
-    static public ItemBerry itemBerrySnozzberry; // green
-    static public ItemBerry itemBerryCloudberry; // orange
+    static public ItemBerry itemBerryStrawberry;
+    static public ItemBerry itemBerryBlackberry;
+    static public ItemBerry itemBerryGooseberry;
+    static public ItemBerry itemBerrySnozzberry;
+    static public ItemBerry itemBerryCloudberry;
 
-    static public ItemJuice itemJuiceBlackberry; // dark blue
-    static public ItemJuice itemJuiceCloudberry; // orange
+    static public ItemJuice itemJuiceBlackberry;
+    static public ItemJuice itemJuiceCloudberry;
     static public ItemJuice itemJuiceGooseberry;
-    static public ItemJuice itemJuiceSnozzberry; // green
-    static public ItemJuice itemJuiceStrawberry; // red-ish
+    static public ItemJuice itemJuiceSnozzberry;
+    static public ItemJuice itemJuiceStrawberry;
 
     static public ItemJuice itemJuiceVanillaApple;
     static public ItemJuice itemJuiceVanillaMelon;
@@ -46,15 +46,6 @@ public class ItemsRegistry implements IMarkedLazy {
      */
     static public void load() {
 
-        /**
-         * Tools.
-         */
-        itemToolJuicer = ItemJuicer.create(new ResourceLocation(SimplyJuices.MODID, "itemtooljuicer"));
-        itemToolBottle = ItemBottle.create(new ResourceLocation(SimplyJuices.MODID, "itemtoolbottle"));
-
-        /**
-         * Berries
-         */
         itemBerryBlackberry = ItemBerry.create(new ResourceLocation(SimplyJuices.MODID, "itemberryblackberry"), 2, 0.2F);
         itemBerryCloudberry = ItemBerry.create(new ResourceLocation(SimplyJuices.MODID, "itemberrycloudberry"), 2, 0.3F);
         itemBerryGooseberry = ItemBerry.create(new ResourceLocation(SimplyJuices.MODID, "itemberrygooseberry"), 3, 0.3F);
@@ -67,31 +58,19 @@ public class ItemsRegistry implements IMarkedLazy {
         itemBerrySnozzberry.setColor(new Color(196, 0, 172));
         itemBerryStrawberry.setColor(new Color(206, 32, 32));
 
-        /**
-         * Juices
-         */
         itemJuiceBlackberry = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuiceblackberry"), itemBerryBlackberry);
         itemJuiceCloudberry = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicecloudberry"), itemBerryCloudberry);
         itemJuiceGooseberry = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicegooseberry"), itemBerryGooseberry);
         itemJuiceSnozzberry = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicesnozzberry"), itemBerrySnozzberry);
         itemJuiceStrawberry = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicestrawberry"), itemBerryStrawberry);
 
-        itemJuiceVanillaApple = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicevanillaapple"), Items.APPLE);
-        itemJuiceVanillaMelon = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicevanillamelon"), Items.MELON);
-        itemJuiceVanillaCarrot = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicevanillacarrot"), Items.CARROT);
-
-        itemJuiceVanillaApple.setColor(new Color(255, 28, 42));
-        itemJuiceVanillaMelon.setColor(new Color(186, 24, 10));
-        itemJuiceVanillaCarrot.setColor(new Color(255, 142, 10));
-
-        /**
-         * Recipes.
-         */
+        itemToolBottle = ItemBottle.create(new ResourceLocation(SimplyJuices.MODID, "itemtoolbottle"));
+        itemToolJuicer = ItemJuicer.create(new ResourceLocation(SimplyJuices.MODID, "itemtooljuicer"));
         itemToolJuicer.setContainerItem(itemToolJuicer);
+
         GameRegistry.addShapelessRecipe(new ItemStack(itemToolJuicer), Blocks.STONE, Blocks.STONE);
 
         if (SimplyJuices.config.enableRequireBottle) {
-
             GameRegistry.addRecipe(new ItemStack(itemToolBottle, 3), " X ", "G G", " G ",
                     'X', new ItemStack(Blocks.PLANKS, 1, OreDictionary.WILDCARD_VALUE),
                     'G', new ItemStack(Blocks.GLASS, 1, OreDictionary.WILDCARD_VALUE));
@@ -101,20 +80,33 @@ public class ItemsRegistry implements IMarkedLazy {
             GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceGooseberry), itemToolJuicer, itemBerryGooseberry, itemToolBottle);
             GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceSnozzberry), itemToolJuicer, itemBerrySnozzberry, itemToolBottle);
             GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceStrawberry), itemToolJuicer, itemBerryStrawberry, itemToolBottle);
-
-            if (SimplyJuices.config.enableVanillaJuices) {
-                GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceVanillaApple), itemToolJuicer, Items.APPLE, itemToolBottle);
-                GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceVanillaMelon), itemToolJuicer, Items.MELON, itemToolBottle);
-                GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceVanillaCarrot), itemToolJuicer, Items.CARROT, itemToolBottle);
-            }
         } else {
             GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceBlackberry), itemToolJuicer, itemBerryBlackberry);
             GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceCloudberry), itemToolJuicer, itemBerryCloudberry);
             GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceGooseberry), itemToolJuicer, itemBerryGooseberry);
             GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceSnozzberry), itemToolJuicer, itemBerrySnozzberry);
             GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceStrawberry), itemToolJuicer, itemBerryStrawberry);
+        }
 
-            if (SimplyJuices.config.enableVanillaJuices) {
+        if (SimplyJuices.config.enableVanillaJuices) {
+
+            itemJuiceVanillaApple = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicevanillaapple"), Items.APPLE);
+            itemJuiceVanillaMelon = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicevanillamelon"), Items.MELON);
+            itemJuiceVanillaCarrot = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicevanillacarrot"), Items.CARROT);
+
+            itemJuiceVanillaApple.setColor(new Color(255, 28, 42));
+            itemJuiceVanillaMelon.setColor(new Color(186, 24, 10));
+            itemJuiceVanillaCarrot.setColor(new Color(255, 142, 10));
+
+            OreDictionary.registerOre("oreBerryJuice", itemJuiceVanillaApple);
+            OreDictionary.registerOre("oreBerryJuice", itemJuiceVanillaMelon);
+            OreDictionary.registerOre("oreBerryJuice", itemJuiceVanillaCarrot);
+
+            if (SimplyJuices.config.enableRequireBottle) {
+                GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceVanillaApple), itemToolJuicer, Items.APPLE, itemToolBottle);
+                GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceVanillaMelon), itemToolJuicer, Items.MELON, itemToolBottle);
+                GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceVanillaCarrot), itemToolJuicer, Items.CARROT, itemToolBottle);
+            } else {
                 GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceVanillaApple), itemToolJuicer, Items.APPLE);
                 GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceVanillaMelon), itemToolJuicer, Items.MELON);
                 GameRegistry.addShapelessRecipe(new ItemStack(itemJuiceVanillaCarrot), itemToolJuicer, Items.CARROT);

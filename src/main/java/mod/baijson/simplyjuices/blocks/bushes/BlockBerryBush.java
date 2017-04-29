@@ -132,7 +132,6 @@ public class BlockBerryBush extends GrowingBlock implements IGrowingBlock, IPlan
     }
 
     /**
-     *
      * @param state
      * @param access
      * @param position
@@ -163,14 +162,6 @@ public class BlockBerryBush extends GrowingBlock implements IGrowingBlock, IPlan
     }
 
     /**
-     * @param value
-     */
-    @Override
-    public void setColor(Color value) {
-        //
-    }
-
-    /**
      * @return
      */
     @Override
@@ -179,6 +170,14 @@ public class BlockBerryBush extends GrowingBlock implements IGrowingBlock, IPlan
             return ((IColorAware) this.material).getColor();
         }
         return -1;
+    }
+
+    /**
+     * @param value
+     */
+    @Override
+    public void setColor(Color value) {
+        //
     }
 
     /**
