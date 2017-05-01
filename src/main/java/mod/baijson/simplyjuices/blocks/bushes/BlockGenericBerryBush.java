@@ -64,7 +64,7 @@ public class BlockGenericBerryBush extends BlockBerryBush {
     public void updateTick(World world, BlockPos position, IBlockState state, Random random) {
         super.updateTick(world, position, state, random);
 
-        if (random.nextInt(10) == 0 && world.getLightFromNeighbors(position) >= 8) {
+        if (random.nextInt(SimplyJuices.config.ratioBushGrowthRate) == 0 && world.getLightFromNeighbors(position) >= 8) {
             if (getCurrentAge(state) < getMaximumAge()) {
                 setCurrentAge(world, position, getCurrentAge(state) + 1);
             }
