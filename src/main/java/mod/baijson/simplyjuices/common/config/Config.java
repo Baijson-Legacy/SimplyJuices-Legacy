@@ -25,6 +25,9 @@ public class Config extends ConfigFactory {
     public boolean enableRequireBottle = false;
     public boolean enableVanillaJuices = false;
 
+    public int ratioBushGrowthRate = 20;
+
+
     /**
      * @param event
      */
@@ -48,6 +51,8 @@ public class Config extends ConfigFactory {
         final ConfigCategory catSnozzberry = new ConfigCategory("Snozzberry", catWorldgen);
         final ConfigCategory catStrawberry = new ConfigCategory("Strawberry", catWorldgen);
 
+        ratioBushGrowthRate = this.handle().get(catWorldgen.getQualifiedName(), "Berrybush growth rate", ratioBushGrowthRate, "How long it takes for a bush to grow to the next stage. (min: 1, max: 100, default: 20)", 1, 100).getInt();
+
         generationBlackberryBushEnable = this.handle().get(catBlackberry.getQualifiedName(), "Enabled", generationBlackberryBushEnable).getBoolean();
         generationBlackberryBushRarity = this.handle().get(catBlackberry.getQualifiedName(), "Rarity", generationBlackberryBushRarity, "Spawnrate value between 0 ~ 100. (0 = extremely rare)", 0, 100).getInt();
         generationBlackberryBushRarity = (100 - generationBlackberryBushRarity);
@@ -67,7 +72,6 @@ public class Config extends ConfigFactory {
         generationStrawberryBushEnable = this.handle().get(catStrawberry.getQualifiedName(), "Enabled", generationStrawberryBushEnable).getBoolean();
         generationStrawberryBushRarity = this.handle().get(catStrawberry.getQualifiedName(), "Rarity", generationStrawberryBushRarity, "Spawnrate value between 0 ~ 100. (0 = extremely rare)", 0, 100).getInt();
         generationStrawberryBushRarity = (100 - generationStrawberryBushRarity);
-
 
         enableRequireBottle = this.handle().get("General", "Juice recipes require empty bottles", enableRequireBottle).getBoolean();
         enableVanillaJuices = this.handle().get("General", "Enable recipes for Applejuice, Melonjuice and Carrotjuice", enableVanillaJuices).getBoolean();
