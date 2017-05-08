@@ -31,32 +31,26 @@ public class ItemJuice extends GenericItemFood implements IGenericItemFood, IMod
         this.setCreativeTab(SimplyJuices.SimplyJuicesTab);
     }
 
+
     /**
      * @param resource
      * @param material
+     * @param amount
+     * @param saturation
      * @return
      */
-    public static ItemJuice create(ResourceLocation resource, Item material) {
+    public static ItemJuice create(ResourceLocation resource, Item material, int amount, float saturation) {
         ItemJuice self = null;
         try {
             if (material instanceof ItemFood) {
-
-                ItemStack stack = new ItemStack(material);
-
-                int hunger = ((ItemFood) stack.getItem()).getHealAmount(stack);
-                float saturation = ((ItemFood) stack.getItem()).getSaturationModifier(stack);
-
-                self = new ItemJuice(resource, hunger + (material instanceof ItemBerry ? 2 : 1), saturation + 0.1F);
-
-                if (stack.getItem() instanceof IColorAware) {
-                    self.setColor(new Color(((IColorAware) stack.getItem()).getColor()));
+                self = new ItemJuice(resource, amount, saturation);
+                if (material instanceof IColorAware) {
+                    self.setColor(new Color(((IColorAware) material).getColor()));
                 }
             }
-
             if (self != null) {
                 self.register();
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
