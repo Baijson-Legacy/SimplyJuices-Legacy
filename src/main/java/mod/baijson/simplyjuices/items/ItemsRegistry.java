@@ -45,12 +45,11 @@ public class ItemsRegistry implements IMarkedLazy {
      * Load and register objects.
      */
     static public void load() {
-
-        itemBerryBlackberry = ItemBerry.create(new ResourceLocation(SimplyJuices.MODID, "itemberryblackberry"), 2, 0.2F);
-        itemBerryCloudberry = ItemBerry.create(new ResourceLocation(SimplyJuices.MODID, "itemberrycloudberry"), 2, 0.3F);
-        itemBerryGooseberry = ItemBerry.create(new ResourceLocation(SimplyJuices.MODID, "itemberrygooseberry"), 3, 0.3F);
-        itemBerrySnozzberry = ItemBerry.create(new ResourceLocation(SimplyJuices.MODID, "itemberrysnozzberry"), 2, 0.2F);
-        itemBerryStrawberry = ItemBerry.create(new ResourceLocation(SimplyJuices.MODID, "itemberrystrawberry"), 2, 0.2F);
+        itemBerryBlackberry = ItemBerry.create(new ResourceLocation(SimplyJuices.MODID, "itemberryblackberry"), SimplyJuices.config.regenBlackberryBerryHunger, SimplyJuices.config.regenBlackberryBerrySaturation);
+        itemBerryCloudberry = ItemBerry.create(new ResourceLocation(SimplyJuices.MODID, "itemberrycloudberry"), SimplyJuices.config.regenCloudberryBerryHunger, SimplyJuices.config.regenCloudberryBerrySaturation);
+        itemBerryGooseberry = ItemBerry.create(new ResourceLocation(SimplyJuices.MODID, "itemberrygooseberry"), SimplyJuices.config.regenGooseberryBerryHunger, SimplyJuices.config.regenGooseberryBerrySaturation);
+        itemBerrySnozzberry = ItemBerry.create(new ResourceLocation(SimplyJuices.MODID, "itemberrysnozzberry"), SimplyJuices.config.regenSnozzberryBerryHunger, SimplyJuices.config.regenSnozzberryBerrySaturation);
+        itemBerryStrawberry = ItemBerry.create(new ResourceLocation(SimplyJuices.MODID, "itemberrystrawberry"), SimplyJuices.config.regenStrawberryBerryHunger, SimplyJuices.config.regenStrawberryBerrySaturation);
 
         itemBerryBlackberry.setColor(new Color(32, 42, 64));
         itemBerryCloudberry.setColor(new Color(224, 162, 74));
@@ -58,11 +57,11 @@ public class ItemsRegistry implements IMarkedLazy {
         itemBerrySnozzberry.setColor(new Color(196, 0, 172));
         itemBerryStrawberry.setColor(new Color(206, 32, 32));
 
-        itemJuiceBlackberry = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuiceblackberry"), itemBerryBlackberry);
-        itemJuiceCloudberry = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicecloudberry"), itemBerryCloudberry);
-        itemJuiceGooseberry = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicegooseberry"), itemBerryGooseberry);
-        itemJuiceSnozzberry = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicesnozzberry"), itemBerrySnozzberry);
-        itemJuiceStrawberry = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicestrawberry"), itemBerryStrawberry);
+        itemJuiceBlackberry = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuiceblackberry"), itemBerryBlackberry, SimplyJuices.config.regenBlackberryJuiceHunger, SimplyJuices.config.regenBlackberryJuiceSaturation);
+        itemJuiceCloudberry = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicecloudberry"), itemBerryCloudberry, SimplyJuices.config.regenCloudberryJuiceHunger, SimplyJuices.config.regenCloudberryJuiceSaturation);
+        itemJuiceGooseberry = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicegooseberry"), itemBerryGooseberry, SimplyJuices.config.regenGooseberryJuiceHunger, SimplyJuices.config.regenGooseberryJuiceSaturation);
+        itemJuiceSnozzberry = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicesnozzberry"), itemBerrySnozzberry, SimplyJuices.config.regenSnozzberryJuiceHunger, SimplyJuices.config.regenSnozzberryJuiceSaturation);
+        itemJuiceStrawberry = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicestrawberry"), itemBerryStrawberry, SimplyJuices.config.regenStrawberryJuiceHunger, SimplyJuices.config.regenStrawberryJuiceSaturation);
 
         itemToolBottle = ItemBottle.create(new ResourceLocation(SimplyJuices.MODID, "itemtoolbottle"));
         itemToolJuicer = ItemJuicer.create(new ResourceLocation(SimplyJuices.MODID, "itemtooljuicer"));
@@ -90,9 +89,9 @@ public class ItemsRegistry implements IMarkedLazy {
 
         if (SimplyJuices.config.enableVanillaJuices) {
 
-            itemJuiceVanillaApple = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicevanillaapple"), Items.APPLE);
-            itemJuiceVanillaMelon = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicevanillamelon"), Items.MELON);
-            itemJuiceVanillaCarrot = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicevanillacarrot"), Items.CARROT);
+            itemJuiceVanillaApple = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicevanillaapple"), Items.APPLE, SimplyJuices.config.regenAppleJuiceHunger, SimplyJuices.config.regenAppleJuiceSaturation);
+            itemJuiceVanillaMelon = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicevanillamelon"), Items.MELON, SimplyJuices.config.regenMelonJuiceHunger, SimplyJuices.config.regenMelonJuiceSaturation);
+            itemJuiceVanillaCarrot = ItemJuice.create(new ResourceLocation(SimplyJuices.MODID, "itemjuicevanillacarrot"), Items.CARROT, SimplyJuices.config.regenCarrotJuiceHunger, SimplyJuices.config.regenCarrotJuiceSaturation);
 
             itemJuiceVanillaApple.setColor(new Color(255, 28, 42));
             itemJuiceVanillaMelon.setColor(new Color(186, 24, 10));
