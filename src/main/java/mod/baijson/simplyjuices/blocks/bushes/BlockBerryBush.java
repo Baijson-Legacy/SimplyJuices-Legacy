@@ -101,7 +101,7 @@ public class BlockBerryBush extends GrowingBlock implements IGrowingBlock, IPlan
      * @return
      */
     @Override
-    public boolean onBlockActivated(World world, BlockPos position, IBlockState state, EntityPlayer player, EnumHand hand,  EnumFacing facing, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World world, BlockPos position, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (world.isRemote)
             return true;
 
@@ -200,7 +200,7 @@ public class BlockBerryBush extends GrowingBlock implements IGrowingBlock, IPlan
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
         Tooltip.construct(tooltip, () -> {
-            Tooltip.insert(tooltip, Tooltip.local(stack.getUnlocalizedName() + ".tooltip"));
+            Tooltip.insert(tooltip, stack.getUnlocalizedName() + ".tooltip");
         });
     }
 }
