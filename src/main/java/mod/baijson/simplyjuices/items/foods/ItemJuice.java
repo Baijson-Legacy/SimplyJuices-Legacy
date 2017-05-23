@@ -1,16 +1,21 @@
 package mod.baijson.simplyjuices.items.foods;
 
 import mod.baijson.simplyjuices.SimplyJuices;
+import mod.baijson.simplyjuices.items.ItemsRegistry;
 import mod.baijson.skeleton.client.render.IColorAware;
 import mod.baijson.skeleton.client.render.IModelAware;
 import mod.baijson.skeleton.items.foods.GenericItemFood;
 import mod.baijson.skeleton.items.foods.IGenericItemFood;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
 import java.awt.*;
 
 /**
@@ -63,6 +68,34 @@ public class ItemJuice extends GenericItemFood implements IGenericItemFood, IMod
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
         return EnumAction.DRINK;
+    }
+
+    /**
+     *
+     * @param stack
+     * @param world
+     * @param entity
+     *
+     * @return
+     */
+    @Nullable
+    @Override
+    public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entity) {
+        super.onItemUseFinish(stack, world, entity);
+
+        if (SimplyJuices.config.enableReturnsBottle) {
+            ItemStack bottle = new ItemStack(ItemsRegistry.itemToolBottle);
+            if (entity instanceof EntityPlayer && !((EntityPlayer) entity).capabilities.isCreativeMode) {
+                if (stack.stackSize <= 0) {
+                    return bottle;
+                }
+                if (!((EntityPlayer) entity).inventory.addItemStackToInventory(bottle)) {
+                    ((EntityPlayer) entity).dropItem(bottle, false, false);
+                }
+            }
+        }
+
+        return stack.stackSize <= 0 ? null : stack;
     }
 
     /**
