@@ -55,6 +55,7 @@ public class Config extends ConfigFactory {
     public float regenMelonJuiceSaturation = 0.4F;
 
     public boolean enableRequireBottle = false;
+    public boolean enableReturnsBottle = false;
     public boolean enableVanillaJuices = false;
 
     public int ratioBushGrowthRate = 20;
@@ -154,8 +155,9 @@ public class Config extends ConfigFactory {
             generationStrawberryBushRarity = (100 - generationStrawberryBushRarity);
 
 
-            enableRequireBottle = this.handle().get("General", "Juice recipes require empty bottles", enableRequireBottle).getBoolean();
-            enableVanillaJuices = this.handle().get("General", "Enable recipes for Applejuice, Melonjuice and Carrotjuice", enableVanillaJuices).getBoolean();
+            enableRequireBottle = this.handle().get("General", "Juice recipes require empty bottles", enableRequireBottle, "Enables the bottle recipe when this is true.").getBoolean();
+            enableReturnsBottle = this.handle().get("General", "Juices return a bottle after drinking", enableReturnsBottle, "When enabled, juices will return an empty bottle after the player finished using the item.").getBoolean();
+            enableVanillaJuices = this.handle().get("General", "Enable recipes for Applejuice, Melonjuice and Carrotjuice", enableVanillaJuices, "").getBoolean();
 
         } catch (Exception e) {
             FMLLog.log(Level.ERROR, e.getMessage());
